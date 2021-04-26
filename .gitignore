@@ -1,0 +1,5 @@
+build/*
+*.so
+*.a
+bvh/*
+./build.sh
