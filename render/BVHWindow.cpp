@@ -21,7 +21,7 @@ BVHWindow()
 	mDisplayTimeout = 33;
 	initLights();
 	
-	std::string path = std::string(BVH_DIR)+"/data/";
+	std::string path = std::string(BVH_DIR)+"/bvh/";
 	std::vector<std::string> filenames;
 	for (const auto& entry: fs::directory_iterator(path))
 		filenames.emplace_back(entry.path().filename().string());
@@ -150,6 +150,7 @@ Special(int key,int x,int y)
 			mCurFrame=0;
 			mBVHIdx-= 1;
 			if(mBVHIdx<0) mBVHIdx=0;
+			std::cout << mBVHIdx << "\t" << mBVHs[mBVHIdx]->GetName() << std::endl;
 			break;
 		}
 
@@ -157,6 +158,7 @@ Special(int key,int x,int y)
 			mCurFrame=0;
 			mBVHIdx+= 1;
 			if(mBVHIdx>=mBVHs.size()) mBVHIdx=0;
+			std::cout << mBVHIdx << "\t" << mBVHs[mBVHIdx]->GetName() << std::endl;
 			break;
 		}
 	}
